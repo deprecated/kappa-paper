@@ -1,0 +1,15 @@
+*~
+ltxpng
+*.log
+*.aux
+*.blg
+*.dvi
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.pyg
+auto
+.DS_Store
+*.pyc
+__pycache__
+
