@@ -338,26 +338,36 @@ meaning that the low velocity electrons will Maxwellianize most
 rapidly.  Below, we investigate the effects of using each of these
 timescales in the relaxation operator.
 
+The energy loss timescale. \(\ubar < u < 2 \sqrt{\ln\Lambda} \ubar\)
+
 \newcommand*{\vcenteredhbox}[1]{\begingroup
   \setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
+
 \begin{figure}
-  \vcenteredhbox{\includegraphics[width=0.45\linewidth]{relax_timescales}}
-  \vcenteredhbox{%
-    \begin{tabular}{lll}\hline
-      & \(u \ll \ubar\) & \(u \gg \ubar\) \\ \hline
-      \(\tau_F\) & \(\propto u^{-1} \) & \(\propto u^{2} \) \\
-      \(\tau_s\) & constant & \(\propto u^{3} \) \\
-      \(\tau_d\) & \(\propto u^{2} \) & \(\propto u^{3} \) \\ \hline
-    \end{tabular}}
-  \caption{Three different candidate relaxation timescales as a
+  \centering
+  \begin{tabular}{lllcl}\hline
+    Timescale & Symbol & \(u \ll \ubar\) & \(\ubar < u \lesssim 10\ubar\) & \(u \gg \ubar\) \\ \hline
+    Friction & \(\tau_F\) & \(\propto u^{-1} \) & & \(\propto u^{2} \) \\
+    Slowing-down & \(\tau_s\) & constant & & \(\propto u^{3} \) \\
+    Deflection & \(\tau_d\) & \(\propto u^{2} \) & & \(\propto u^{3} \) \\ 
+    Energy-loss & \(\tau_E\) & \(\propto u^{3} \) & \(\propto u^{5} \)& \(\propto u^{3} \) \\
+    \hline
+  \end{tabular}
+  \includegraphics[width=0.9\linewidth]{relax_timescales}
+  \caption{Four different relaxation timescales as a
     function of electron velocity in thermal units. Velocity-space
     friction timescale \(\tau_F\)
     (blue line), slowing down time \(\tau_s\)
-    (green line), and deflection time \(\tau_d\)
-    (red line).  Asymptotic behaviors for small and large velocities
-    are shown in the table.}
+    (green line), deflection time \(\tau_d\)
+    (red line), and energy loss time \(\tau_E\).
+    Asymptotic behaviors for small and large velocities are shown in
+    the table.
+    }
   \label{fig:relax}
 \end{figure}
+% \begin{table}
+%   \caption{Asymptotic behaviors of relaxation timescales}
+% \end{table}
 
 \paragraph{Photoionizations} \dfudt{photo} represents the rate of
 production of photo-electrons with velocity \(u\) due to the

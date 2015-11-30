@@ -46,20 +46,171 @@
   + For a plasma, we use the Debye screening radius, which is somewhat larger than this, but only by a factor of about 100
   + In reality, the stellar dynamics case is vulnerable to non-collisional relaxation and qSSs (see below), but the neutral plasma is not because of the exponential cut-off of the fields beyond the Debye radius
 **** TODO Open questions about t_E 
-1. [ ] What makes it so much longer than other timescales as u \to \infty?
+1. [X] What makes it so much longer than other timescales as u \to \infty?
+   - *Answer* it doesn't really - Chandra correction gets it to go as u^3 for \xi > 10
 2. [ ] Why is it not used by the people who do ionization and heating of ISM by Auger electrons?
    - They use an energy loss with timescale ~ u^3
 3. [ ] Is it really relevant to our case?
 4. [ ] What does [[id:7215C21E-7691-4105-BB25-4CF5149CF010][Kunc (1989)]] have to say about it?
-5. [ ] Is the Jerry Sellwood (2015) paper at all relevant?
-**** TODO Material from Kunc (1989)
+5. [X] Is the Jerry Sellwood (2015) paper at all relevant?
+   - *Answer* no, not really.  It is mainly concerned with assessing which numerical methods are best at capturing relaxation in stellar systems.  
+*** Material from Chang (2000)
++ They are working on anti-hydrogen recombination but uses a general approach
++ They are concerned with non-weakly coupled plasmas, where \ln \Lambda \gg 1 cannot be assumed
++ But this means that they are considering terms that are also important for \xi \gg 1
++ Velocity space friction and diffusion
+  + Friction is \langle \Delta u_{\parallel} \rangle - what slows you down
+  + Diffusion is \langle \Delta u_{\parallel}^{2} \rangle and \langle \Delta u_{\perp}^{2} \rangle
++ They use u_{\delta} as the change in velocity during the collision, normalised by the (a v_{th}) where v_{th} is the thermal velocity and a = 2 \mu/m, so a=1 for identical field and test particles.
++ They use g for the relative speed of the scatterers
++ They say that the mean value of g (equation 25) is
+  \[\frac{\langle g \rangle} {v_{\mathrm{th}}} = \pi^{-1/2} e^{-u^{2}} + \left(u + 1/2u\right) \operatorname{erf
+}(u)\]
+**** Plot of mean relative speed 
+#+BEGIN_SRC python :eval no :tangle mean-collision-speed-chang.py
+  from __future__ import print_function
+  import sys
+  from scipy.special import erf
+  import numpy as np
+  from matplotlib import pyplot as plt
+  import seaborn as sns
+
+  def g(u):
+      return np.exp(-u**2)/np.sqrt(np.pi) + (u + 1./(2*u))*erf(u)
+
+
+  figname = sys.argv[0].replace('.py', '.pdf')
+
+  fig, ax = plt.subplots(1, 1)
+  x = np.logspace(-1.0, 1.0, 200)
+  ax.plot(x, g(x))
+  ax.plot(x, x, lw=0.2)
+  ax.set_xscale('log')
+  ax.set_yscale('log')
+  ax.set_ylim(0.1, 10)
+  ax.set_xlabel(r'$\xi = u / \hat{u}$')
+  ax.set_ylabel(r'Mean relative collision speed: $\langle g \rangle$')
+  fig.set_size_inches(4, 4)
+  fig.tight_layout()
+  fig.savefig(figname)
+  print(figname)
+#+END_SRC
+
+#+BEGIN_SRC sh :results file
+python mean-collision-speed-chang.py
+#+END_SRC
+
+#+RESULTS:
+[[file:mean-collision-speed-chang.pdf]]
+
+*** DONE Material from Kunc (1989)
+CLOSED: [2015-11-29 Sun 21:39]
 :PROPERTIES:
 :ID:       7215C21E-7691-4105-BB25-4CF5149CF010
 :END:
 - [[file:~/Dropbox/Documents/Papers/Kunc/Kunc1989a-0.pdf]]
 - *Energy loss of fast nonthermal electrons in plasmas*
 - *Abstract* Simple analytical expressions for equilibration times of nonrelativistic monoenergetic electrons in plasmas are evaluated in the "weak"-beam approximation when the density of the monoenergetic electrons is much smaller than the plasma density. The equilibration time is defined as the time needed by the beam of monoenergetic electrons to lose most of its energy as a result of collisions with plasma particles having a Maxwellian energy distribution. The process of the energy equilibra- tion is treated as a statistical superposition of both elastic (electron-electron, electron-ion, and electron —neutral-particle) and inelastic (electron —neutral-particle) collisions in the plasma. The possibility of collisionless equilibration is also discussed. Comparison of the equilibration times with the Spitzer relaxation times indicates that the former times are more appropriate for an esti- mate of the energy loss of the "weak" electron beams in highly ionized plasmas. The approach of this work can be generalized in a straightforward way to beam-plasma and beam-gas systems with ionic and neutral-particle beams.
-- *My thoughts* 
+- *My thoughts*
+  - This article is not that impressive
+  - It examines the scenario of a "beam" of high-velocity monoenergetic particles that interacts with a thermal "plasma" of a few eV temperature
+  - It considers several different equilibration mechanisms
+    1. Elastic collisions with charged particles
+    2. Collective effects (plasma instability)
+    3. Elastic collisions with neutrals
+    4. Inelastic collisions with neutral
+  - Relevant conclusions for us
+    - Collective effects are only important for beams with density > 0.1 times the plasma density
+      - This means that plasma instabilities will not be relevant to our case (not the keV electrons anyway)
+    - Neutral inelastic collisions are important when the ionization fraction is low
+      - well duh
+    - He gets a timescale for  e-e elastic collisions to cause energy loss that is significantly different than Spitzer's result
+      - By a factor of 3\pi \epsilon_b / k T_p
+      - which is basically 3\pi \xi^2
+    - he also compares with Chandrasekhar, but only in the high velocity limit as reported by Spitzer (suggesting he never bothered to read the Chandrasekhar paper)
+*** DONE Material from Chandrasekhar 1941
+CLOSED: [2015-11-30 Mon 13:33]
++ This is applied to stellar dynamics, but the results are directly applicable to plasmas too
+  + Chandra took an upper cut-off to the impact parameter of a few times the interparticle distance
+  + This makes the equations formally the same as the plasma ones, where we use the Debye radius for this
+  + The irony is is that although this is correct for a plasma, in the gravitational case it is not really right - instead one should use the Jeans distance (basically the entire system)
++ He uses \mu = m_{1} / m_{2}, which is 1 in our case
++ Finds an energy exchange time of 
+  \[t_{E} = \frac{v_{3}^{2}} {32\pi N G^{2} m_{1}^{2} \left[G(x_{0}) \log_{e}\frac{D_{0} v_{2}^{2}}{G m_{1}} + g(x_{0}, \mu) \right]}\]
+  + Where 
+    \[G(x_{0}) = \frac{1} {2x_{0}^{2}} \left[\Phi(x_{0}) - x_{0}\Phi'(x_{0})\right]\]
++ Compare this with Spitzer's
+  \[t_{E} = \frac{w^{3}}{4 A_{D} G(l_{f} w)} \]
+  + Where
+    \[A_{D} = \frac{8 \pi e^{4} n_{f} Z^{2} Z_{f}^{2} \log_{e}\Lambda}{m^{2}}\]
++ Equivalences
+  + x_0 is the same as l_f w, which are my \xi
+  + the log term is \log\Lambda
+  + G^2 m^2 is equivalent to e^4 Z^2 Z_f^2 / m^2
+    + Note the G here is gravitational constant, not the erf-based function.  Chandra uses different fonts to distinguish them
+  + the G(\xi) term is the same in both
+  + Chandra has an extra g(x_{0}, \mu), that Spitzer dos not, since he drops terms that do not have log Lambda in them
+    + This term will become important at high velocities because G(\xi) \to 0 as \xi \to \infty
+    + Here is a table of it from Chandra for \mu = 1
+      #+name: chandra-g-table
+      |     \xi | g(\xi, \mu=1) |    G(\xi) | ln\Lambda G(\xi) |
+      |-------+-----------+---------+----------|
+      |   0.6 |    +0.061 | +0.1827 |     3.65 |
+      |   0.8 |    -0.113 | +0.2079 |     4.16 |
+      |   1.0 |    -0.214 | +0.2138 |     4.28 |
+      |   1.2 |    -0.252 | +0.2047 |     4.09 |
+      |   1.4 |    -0.243 | +0.1862 |     3.72 |
+      |   1.6 |    -0.207 | +0.1634 |     3.27 |
+      |   1.8 |    -0.160 | +0.1404 |     2.81 |
+      |   2.0 |    -0.114 | +0.1192 |     2.38 |
+      |   3.0 |    +0.027 | +0.0555 |     1.11 |
+      |   4.0 |    +0.073 | +0.0313 |     0.63 |
+      |   5.0 |    +0.092 | +0.0200 |     0.40 |
+      |  20.0 |    +0.125 | +0.0013 |     0.03 |
+      |  30.0 |    +0.125 |  0.0006 |     0.01 |
+      |  40.0 |    +0.125 |  0.0003 |     6e-3 |
+      |  50.0 |    +0.125 |  0.0002 |     4e-3 |
+      | 100.0 |    +0.125 |    5e-5 |     1e-3 |
+      |     \infty |    +0.125 |  #ERROR |   #ERROR |
+      #+TBLFM: $4=20*$-1;f2::@14$3..@II$3=1/2 $1**2;f4
+**** Find a fit to Chandra's small g function
+#+header: :var tab=chandra-g-table
+#+BEGIN_SRC python :eval no :tangle fit-chandra-small-g.py
+  import sys
+  import numpy as np
+  from matplotlib import pyplot as plt
+  import seaborn as sns
+
+  a = np.array(tab[:-1], dtype=float)
+  x = a[:, 0]
+  g = a[:, 1]
+  z = np.polyfit(np.exp(-x), g, 2)
+  z[-1] = 0.125
+  p = np.poly1d(z)
+  xx = np.linspace(0.0, 10.0, 200)
+  fig, ax = plt.subplots(1, 1)
+  ax.plot(x, g, 'o')
+  ax.plot(xx, p(np.exp(-xx)), '-')
+  ax.set_xlim(0.0, 10)
+  ax.set_ylim(-0.5, 0.5)
+  ax.set_title(','.join(['{:.3f}'.format(_) for _ in z]))
+  figname = sys.argv[0].replace('.py', '.pdf')
+  fig.set_size_inches(4, 4)
+  fig.tight_layout()
+  fig.savefig(figname)
+  print(figname)
+#+END_SRC
+
+#+BEGIN_SRC sh :results file
+python fit-chandra-small-g.py
+#+END_SRC
+
+#+RESULTS:
+[[file:fit-chandra-small-g.pdf]]
+
++ So best fit is 4.369 exp(-2 x) -2.515 exp(-x) + 0.125
++ This is now included in the [[id:AE5BA5A6-CF56-421F-B9DD-614FEDB91E2C][relax_timescales.py]] 
+
 *** TODO What timescale do we use in the BGK approximation?
 ** STARTED Beyond BGK - solving the Fokker--Planck equation 
 *** Survey of existing approaches to solving Focker--Planck equation
@@ -1138,14 +1289,24 @@ python storey_oiii.py
   from matplotlib import pyplot as plt
   import seaborn as sns
 
+  logLambda = 20.0
+
   def erfd(x):
       '''First derivative of error function'''
       return 2*np.exp(-x**2)/np.sqrt(np.pi)
 
+  def G(xi):
+      '''Chandrasekhar big-G function'''
+      return 0.5 * (erf(xi) - xi*erfd(xi)) / xi**2
+
+
+  def g(xi):
+      '''Chandrasekhar little-g function for mu = 1 (equal masses)'''
+      return 0.125 - 2.515*np.exp(-xi) + 4.369*np.exp(-2*xi)
 
   def tau_F(xi):
       '''Velocity-space friction timescale'''
-      return xi**2 / (erf(xi) - xi*erfd(xi))
+      return 0.5 / G(xi)
 
 
   def tau_s(xi):
@@ -1160,12 +1321,12 @@ python storey_oiii.py
 
   def tau_E(xi):
       '''Energy loss timescale'''
-      return 0.5*xi**2 * tau_s(xi)
+      return 0.25*xi**3 / (G(xi) + g(xi)/logLambda)
 
 
   if __name__ == '__main__':
       fig, ax = plt.subplots(1, 1)
-      xi = np.logspace(-1.5, 1.5, 500)
+      xi = np.logspace(-1.5, 2.5, 500)
       styles = {'lw': 3, 'alpha': 0.8}
       ax.plot(xi, tau_F(xi), label=r'$\tau_F$', **styles)
       ax.plot(xi, tau_s(xi), label=r'$\tau_s$', **styles)
@@ -1174,7 +1335,7 @@ python storey_oiii.py
       ax.set_xlabel(r'$\xi = u\, /  \langle u \rangle$')
       ax.set_ylabel(r'$\tau \, / \, \tau_0 $')
       ax.set_xlim(xi[0], xi[-1])
-      ax.set_ylim(1e-3, 1e6)
+      ax.set_ylim(1e-3, 1e8)
       ax.set_xscale('log')
       ax.set_yscale('log')
       ax.legend(loc='upper left', fontsize='large')
