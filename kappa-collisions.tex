@@ -1,0 +1,45 @@
+% Created 2015-12-02 Wed 00:25
+\documentclass[utopia,10pt,listings-sv,microtype,paralist]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1.5in]{geometry}
+\author{William Henney}
+\date{\today}
+\title{Spurious analogy between H II regions and solar system plasmas that ignores collisionality}
+\hypersetup{
+ pdfauthor={William Henney},
+ pdftitle={Spurious analogy between H II regions and solar system plasmas that ignores collisionality},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 24.5.7 (Org mode 8.3.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{quote}
+It is plausible that such conditions are also present in H ii regions and PNe—solar system plasma parameters span the many of the conditions found in gaseous nebulae, and, as in the solar system, H ii region plasmas can be magnetically dominated (Arthur et al. 2011; Nicholls et al. 2012)—so it is important to investigate the effects of non-equilibrium energy distributions with high-energy tails in gaseous nebulae, should they occur.
+\end{quote}
+
+It is not "plausible" at all.  The big difference is the Knudsen number, \(\mathrm{Kn}\), which is the ratio of the electron collisional mean free path to the characteristic length scale of the system.  Solar system plasmas are either non-collisional (Kn > 1) or weakly collisional (\(0.001 > \mathrm{Kn} > 1\)).  Photoionized nebulae are strongly collisional (\(10^{-10} < \mathrm{Kn} < 10^{-6}\)).  This means that evidence of non-Maxwellian distributions in Solar System plasmas is utterly irrelevant to the case of photoionized nebulae.  In weakly collisional and non-collisional plasmas, such deviations are expected.  In highly collisional plasmas they are not. 
+
+Also, it is simply untrue that H II regions are "magnetically dominated" in any important sense:
+\begin{itemize}
+\item The plasma beta, \(\beta = P_{\mathrm{gas}} / P_{\mathrm{mag}}\), is typically \(\beta > 10\) so magnetic fields have only a minor influence on the dynamics of the ionized gas.
+\item The ratio of Larmor radius to Debye radius is of order 10,000, which means that magnetic fields have a negligible effect at the scales at which elastic collisions occur
+\item It \emph{is} true that the ratio of Larmor radius to collisional mean free path is very small (\(10^{-6}\) to \(10^{{-7}}\)), so \emph{in this one very specific sense} one could say that H II regions are "magnetically dominated".  But all this means is that diffusive transport processes (e.g., thermal conduction) are heavily suppressed in directions perpendicular to the magnetic field lines.   The clear separation of scales, \(r_{D} \ll r_{L} \ll \lambda_{e-e} \ll L\), means that there are no other consequences
+\end{itemize}
+\end{document}

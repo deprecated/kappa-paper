@@ -1,0 +1,58 @@
+\documentclass[debug, preprint, twocolumn]{rmaa}
+\usepackage{natbib}
+\begin{document}
+
+We can quantify this  by considering an average of the photoelectron energy,
+$h ( \nu - \nu_0)$, where $h \nu$ is the ionizing photon energy and  $h \nu_0$
+is the ionization potential, 
+weighted by the incident photon spectrum ${4 \pi J_{\nu}} / {h\nu}$
+and the photoionization cross section $\alpha_{\nu}$:
+\begin{equation}
+\langle  E \rangle = \langle h (\nu - \nu_0 ) \rangle  = \frac{\int_{\nu_0}^{\infty}\frac{4 \pi J_{\nu}}{{h\nu}}\, h(\nu - \nu_0) \alpha_\nu\, d\nu}
+{\int_{\nu_0}^{\infty}\frac{4 \pi J_{\nu}}{{h\nu}}\, \alpha_\nu\, d\nu}. 
+\end{equation}
+Table \ref{tab:PhotoElectronEnergy} gives this mean energy in both
+eV and Kelvin units for three different SEDs.  The O star
+is the softest of the three continua, producing photoelectrons with a
+kinetic energy equivalent to 53~kK, the planetary nebula is
+intermediate, and the active galactic nucleus is the hardest SED with
+321~kK.
+
+
+\begin{table}
+\centering
+\caption{Electron kinetic energies in photoionized nebulae}
+\label{tab:PhotoElectronEnergy}
+\begin{tabular}{r r r}
+\hline
+ & $ \langle E \rangle $ & $\langle E\rangle / k $\\
+  \hline
+  \multicolumn{3}{l}{Photoelectrons:} \\
+  H II region SED &  4.54 eV & 52.7 kK \\
+  PN SED   & 22.9 eV  & 266  kK \\
+  AGN SED  & 27.7 eV  & 321  kK \\
+  \hline                        
+Thermal electron   & 0.862 eV & 10 kK  \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+We appreciate that there is a potential for confusion when Kelvin are
+used as a unit of energy rather than temperature, but this is very
+common in the field.  We have re-written Table 1 to give eV first and
+then the Kelvin equivalent. Figure 1 is only intended as a
+representation of the differences between a kappa and a Maxwellian
+gas, so both axes are in arbitrary units. This has the advantage that
+no particular temperature need be specified.
+
+
+%% Original
+This depends on the audience. Our paper is intended for astronomers working
+in the analysis of emission lines. The literature in that field uses temperature because the electrons are Maxwellian. The physics literature tends to use eV. We agree that it would be useful to have the energy in eV mentioned. This has been added as a column in Table 1. 

@@ -1,0 +1,119 @@
+% Created 2015-12-02 Wed 10:42
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{microtype}
+\usepackage{newtxtext}
+\usepackage[varg]{newtxmath}
+\frenchspacing
+\usepackage{framed}
+\usepackage{xcolor}
+\definecolor{shadecolor}{gray}{.95}
+\renewenvironment{quote}{\begin{shaded*}\small\sffamily}{\end{shaded*}}
+\author{William Henney}
+\date{\today}
+\title{Commentary on Nichols et al. (2013)}
+\hypersetup{
+ pdfauthor={William Henney},
+ pdftitle={Commentary on Nichols et al. (2013)},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 24.5.7 (Org mode 8.3.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+This is a paragraph-by-paragraph rebuttal of the arguments given in the introduction of Nichols et al. (2013) in favor of the relevance of \(\kappa\) distributions to the study of photoionized nebulae.  Original text from Nichols et al. is given in gray boxes, followed by my comments. 
+
+\section*{Summary of classic Spitzer timescale analysis}
+\label{sec:orgheadline1}
+\begin{quote}
+It has long been held that the electrons in H ii regions and PNe are in thermal equilibrium. Analytical calculations of electron velocity distributions in gaseous nebulae were presented by Bohm \& Aller (1947). Their work led them to state that the velocity distribution is “very close to Maxwellian.” Spitzer (1962, Ch. 5) also examined the thermalization process for electron energies in plasmas and found that electron energies equilibrate rapidly through collisions. This early work has led later authors to assume that the electrons in gaseous nebulae are always in thermal equilibrium. However, Spitzer’s analysis showed that the equilibration time of an energetic electron is proportional to the cube of the velocity, so even using equilibrium theory, plasmas with very high energy electrons take much longer to equilibrate than those excited by normal UV photons from stars found in H ii regions.
+\end{quote}
+
+This is all true.  But note that no quantitative estimate of the timescale is given here.  If it had been, it might have been realised that electrons would have to have very, very high energies indeed before their equilibration time becomes long enough to allow significant deviations from Maxwellian.  
+
+\section*{Overview of evidence for kappa in solar system plasmas}
+\label{sec:orgheadline2}
+\begin{quote}
+In more recent times, the electron energies in solar system plasmas have been measured directly by satellites and space probes. This began with Vasyliunas (1968), who found that the electron energies in the Earth’s magnetosphere departed substantially from the Maxwellian, and resembled a Maxwellian with a high energy power law tail. He showed that this distribution could be well described by what he called the “\(\kappa\) distribution.” Since then, \(\kappa\) distributions have been widely detected in solar system plasmas and are the subject of considerable interest in solar system physics.\(^{4}\) They have been detected in the outer heliosphere, the magnetospheres of all the gas-giant planets, Mercury, the moons Titan and Io, the Earth’s magnetosphere, plasma sheet and magnetosheath and the solar wind (see references in Pierrard \& Lazar 2010). There is also evidence from IBEX observations that energetic neutral atoms in the interstellar medium, where it interacts with the heliosheath, exhibit \(\kappa\) energy distributions (Livadiotis et al. 2011). In solar system plasmas, the \(\kappa\) distribution is the norm, and the M-B distribution is a rarity. So we are confronted with the fact that \textbf{despite the early theoretical work suggesting that the electrons in such plasmas should be in thermal equilibrium, they are almost always not.}
+
+\rule{\linewidth}{0.5pt}
+
+\(^{4}\) Over 400 papers on the applications of \(\kappa\) distributions in astrophysics had been published prior to 2009 (Livadiotis \& McComas 2009) and over 5000 in physics in general had been published prior to 2011 (Livadiotis \& McComas 2011).
+\end{quote}
+
+There is nothing wrong with the majority of this paragraph.  It is all correct, except for the final sentence (my emphasis), which is a false dichotomy and a non sequitur. The ``early theoretical work'' did not address ``such plasmas'' (that is, solar system plasmas) because it was concerned with conditions in H II regions, which are completely different, as will be addressed next.
+
+\section*{Spurious analogy between H II regions and solar system plasmas, which ignores collisionality}
+\label{sec:orgheadline3}
+\begin{quote}
+It is plausible that such conditions are also present in H ii regions and PNe—solar system plasma parameters span the many of the conditions found in gaseous nebulae, and, as in the solar system, H ii region plasmas can be magnetically dominated (Arthur et al. 2011; Nicholls et al. 2012)—so it is important to investigate the effects of non-equilibrium energy distributions with high-energy tails in gaseous nebulae, should they occur.
+\end{quote}
+
+It is not ``plausible'' at all.  The big difference is the Knudsen number, \(\mathrm{Kn}\), which is the ratio of the electron-electron collisional mean free path \(\lambda_{e-e}\) to the characteristic length scale \(L\) of the system.  Solar system plasmas are either non-collisional (\(\mathrm{Kn} > 1\)) or weakly collisional (\(0.001 > \mathrm{Kn} > 1\)).  Photoionized nebulae are strongly collisional (\(10^{-10} < \mathrm{Kn} < 10^{-6}\)).  This means that evidence of non-Maxwellian distributions in Solar System plasmas is utterly irrelevant to the case of photoionized nebulae.  In weakly collisional and non-collisional plasmas, such deviations are expected.  In highly collisional plasmas they are not. 
+
+Nichols et al. seem to have been misled by the fact that the densities, temperatures, and magnetic field strengths in solar system plasmas are not too dissimilar from those in photoionized nebulae.  Despite this superficial similarity, the relevant length scales are very different, which means that they operate in completely opposite plasma regimes.
+
+Also, it is simply untrue that H II regions are ``magnetically dominated'' in any important sense:
+\begin{itemize}
+\item The plasma beta, \(\beta = P_{\mathrm{gas}} / P_{\mathrm{mag}}\), is typically \(\beta > 10\) so magnetic fields have only a minor influence on the dynamics of the ionized gas.
+\item The ratio of Larmor radius \(r_{L}\) to Debye radius \(\lambda_{D}\) is of order 10,000, which means that magnetic fields have a negligible effect at the scales at which elastic collisions occur
+\item It \emph{is} true that the ratio of Larmor radius to collisional mean free path is very small (\(10^{-6}\) to \(10^{{-7}}\)), so \emph{in this one very specific sense} one could say that H II regions are ``magnetically dominated''.  But all this means is that diffusive transport processes (e.g., thermal conduction) are heavily suppressed in directions perpendicular to the magnetic field lines.   The many orders of magnitude separation between the different length scales, \(\lambda_{D} \ll r_{L} \ll \lambda_{e-e} \ll L\), means that there are no other major consequences.
+\end{itemize}
+
+
+\section*{Many ways to produce non-thermal electrons}
+\label{sec:orgheadline4}
+\begin{quote}
+Such non-Maxwellian energies may occur whenever the population of energetic electrons is being pumped in a timescale shorter than, or of the same order as the normal energy re-distribution timescale of the electron population. Suitable mechanisms include magnetic reconnection followed by the migration of high-energy electrons along field lines, the development of inertial Alfvén waves, local shocks (driven either by the collision of bulk flows or by supersonic turbulence), and, most simply, by the injection of high-energy electrons through the photoionization process itself. Normal photoionization produces supra-thermal electrons on a timescale similar to the recombination timescale. However, energetic electrons can be generated by the photoionization of dust (Dopita \& Sutherland 2000), and X-ray ionization can produce highly energetic (∼keV) inner-shell (Auger process) electrons (e.g., Shull \& Van Steenberg 1985; Aldrovandi \& Gruenwald 1985; Petrini \& Da Silva 1997, and references therein). These photoionization based processes should become more effective where the source of the ionizing photons has a “hard” photon spectrum. Thus, \textbf{the likelihood of the ionized plasma having a \(\kappa\) electron energy distribution would be high} in the case of either photoionization by an active galactic nucleus, or the case of PNe, where the effective temperature of the exciting star could range up to ∼250,000 K.
+\end{quote}
+
+Again, we have a paragraph full of true (or at least reasonable) statements.  But then we get to the last sentence (my emphasis), which is another non sequitur.  Without any estimate of (at the very least) the order of magnitude of the timescales for these processes, one cannot make any claim about the ``likelihood'' of a kappa distribution. 
+
+\section*{Unsupported claim that hot electrons can be supplied on a timescale shorter than collisions}
+\label{sec:orgheadline5}
+\begin{quote}
+So we have no shortage of possible energy injection mechanisms capable of feeding the energetic population on a timescale which is short compared with the collisional re-distribution timescale. The rate of equilibration falls rapidly with increasing energy, and we would expect there to be a threshold energy above which any non-thermal electrons have a long residence time. These can then feed continually down toward lower energies through conventional collisional energy redistribution, thus maintaining a \(\kappa\) electron energy distribution.
+\end{quote}
+
+Zero evidence is given for ``a timescale which is short compared with the collisional re-distribution timescale''.  It is of course true that there must be \emph{some} threshold energy, above which the electrons are non-Maxwellian, but it is far higher than they seem to think.
+
+The last sentence betrays a misunderstanding of how the energy of very high velocity electrons is transferred to the slower-moving bulk of the electrons (field particles) in a collisional plasma.  There is no ``cascade'' of energy and it is \emph{not at all} the case that a single keV electron gives rise to ten electrons of 100 eV, then one hundred electrons of 10 eV, etc.  Rather, a high energy electron gradually slows down via a kind of dynamical friction: the fast-moving electron electrically polarizes its suroundings in a non-isotropic manner, creating a narrow wake behind it with a slight deficit of field electrons.  The electrostatic attraction of this wake, which has a net positive charge, is what decelerates the fast electron.  Its kinetic energy is transferred collectively to field particles as heating.  Since the collisional relaxation time of the field particles is much shorter than the heating time (equal to the deceleration time of the fast electron), the field particles continually adapt to a Maxwellian distribution at each new temperature as they are heated.   
+
+
+\section*{Irrelevant aside about long-lived Quasi-Stationary States}
+\label{sec:orgheadline6}
+\begin{quote}
+In addition to the energy injection mechanisms capable of maintaining the excitation of suprathermal distributions, several authors (Livadiotis \& McComas 2011 and references therein; Shizgal 2007; Treumann 2001) have investigated the possibility that the \(\kappa\) distribution may remain stable against equilibration longer than conventional thermalization considerations would suggest. In particular, distributions with \(2.5 > \kappa > 1.5\)—detected, for example, in Jupiter’s magnetosphere—appear to have the capacity, through increasing entropy, of moving to values of lower \(\kappa\) (Livadiotis \& McComas 2011) i.e., away from (M-B) equilibrium. While the physical application of this aspect of \(\kappa\) distributions remains to be explored fully, it suggests that where q non-extensive entropy conditions operate, the suprathermal energy distributions produced exist in “stationary states” where the behavior is, at least in the short term, time-invariant (Livadiotis \& McComas 2010). These states may have longer lifetimes than expected classically. This is consistent with the numerous observations in solar system plasmas, that \(\kappa\) electron and proton energy distributions are the norm.
+\end{quote}
+
+Long-lived quasi-stationary states are certainly real.  They are very relevant to non-collisional systems and those with long-range forces (see Levin et al. 2014).  The classic example in astrophysics is the ``violent relaxation'' of star clusters and galaxies (Lynden-Bell 1967), which is a rapid collective phenomenon that typically produces a core-halo structure that is virialized, but not in thermodynamic equilibrium. The relaxation time towards ``true'' thermodynamic equilibrium (in the sense of maximum Boltzmann--Gibbs entropy) diverges as the number of particles (or stars) in the system increases, and in many cases this is longer than a Hubble time. 
+
+However, a quasi-neutral plasma is very different from such systems.  Despite the fact that the Coulomb force, like gravity, has an inverse-square dependence on distance, the existence of equal numbers of positive and negative charges means that the electrostatic potential is screened at distances larger than the Debye length, \(\lambda_{D}\).  Thus, interactions in a plasma are effectively short-ranged and the usual Boltzmann--Gibbs statistical mechanics applies so long as the Knudsen number is sufficiently small.  Only if the plasma has a net charge can it be considered a long-range interacting system, prone to being trapped in a quasi-stationary state, but the fractional deviation from neutrality on a scale \(L\) is of order \((\lambda_{D}/L)^{2}\), which is vanishingly small (\(\sim 10^{-34}\)) for H II regions. 
+
+\section*{Two questions that can be answered in the negative}
+\label{sec:orgheadline7}
+\begin{quote}
+It is likely, therefore, that photoionized plasmas in gaseous nebulae will show departures from a Maxwell distribution to some degree. The key questions are, is this important, and does it produce observable effects in the nebular diagnostics which we have relied upon hitherto?
+\end{quote}
+
+The first sentence is unobjectionable, for a sufficiently small value of ``some''.  The answers to the two questions posed in the second sentence are respectively ``No'' and ``No''.  
+
+Yes, there will be significant deviations from a Maxwellian speed distribution, but only for electrons with velocities larger than about 5 times the most probable thermal velocity.  Nebular diagnostics are sensitive to electrons with velocities between 2 and 3 times the most probable thermal velocity, and these will be Maxwellian to a high precision. 
+
+It might be thought that the difference between 3 and 5 is not \emph{so} great, and that there could be some ``wriggle room'' that would allow \(\kappa\) to still be relevant.  But consider the fact that in a Maxwellian distribution 5\% of electrons have speeds greater than 2 times thermal, and 1 in 1000 electrons have speeds greater than 3 times thermal, but fewer than 1 in 1,000,000,000 have speeds greater than 5 times thermal.  It is this steep decline in the thermal distribution function, just as much as the increase in relaxation time, that means that deviations from Maxwellian become ``easy'' at sufficiently high velocities.  Thus there is no ``wriggle room'' and the inescapable conclusion is that \(\kappa\) distributions should not be applied to photoionized nebulae.
+\end{document}

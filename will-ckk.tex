@@ -338,7 +338,12 @@ meaning that the low velocity electrons will Maxwellianize most
 rapidly.  Below, we investigate the effects of using each of these
 timescales in the relaxation operator.
 
-The energy loss timescale. \(\ubar < u < 2 \sqrt{\ln\Lambda} \ubar\)
+\textit{
+Talk about energy loss timescale. Intermediate velocity regime \(\ubar
+< u < 2 \sqrt{\ln\Lambda} \ubar\).  Importance at high velocities of not neglecting the
+terms with \((\ln\Lambda)^{-1}\) dependency
+\citep{Chandrasekhar:1941a}
+}
 
 \newcommand*{\vcenteredhbox}[1]{\begingroup
   \setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
@@ -368,6 +373,11 @@ The energy loss timescale. \(\ubar < u < 2 \sqrt{\ln\Lambda} \ubar\)
 % \begin{table}
 %   \caption{Asymptotic behaviors of relaxation timescales}
 % \end{table}
+
+\textit{Maybe we can do better than the BGK approximation.  Look into
+  \citet{Gould:1971a, Gould:1976a} for this.  Also exact solution from
+  \citet{Manservisi:2004a}. 
+}
 
 \paragraph{Photoionizations} \dfudt{photo} represents the rate of
 production of photo-electrons with velocity \(u\) due to the
@@ -412,8 +422,7 @@ Figure~\ref{fig:photoelec} shows the product \(\phi_\nu a_\nu\)
 of a Cloudy model of the Orion Nebula, with the ionizing spectrum
 calculated from stellar atmosphere models \citep{2003ApJS..146..417L}
 of the 5 OB stars of the Trapezium cluster \citep{Ferland:2012a}.
-\emph{Does this include dust photoionization?  Does it include the OTS
-diffuse field?}.  The photoelectric
+\emph{Mention that it does not include diffuse field}.  The photoelectric
 yield can be approximately fit by piecewise exponential Wien
 functions, \(\exp(-E/k T_*)\),
 as shown on the figure.  For photon energies between the H\(^0\)
@@ -428,25 +437,26 @@ temperature in the \hii{} region, meaning that the high-energy tail of
 
 \paragraph{Recombinations} \dfudt{recomb} represents the rate of loss
 of electrons due to radiative recombination with protons and other
-ions.  For recombinations to all excited (\(n > 1\))
-bound states \(nL\)
-of hydrogen, the electron loss rate per unit volume and unit velocity
-interval is (e.g., \S~4.3 of \citealp{Ferland:2012a})
+ions.  For recombinations to all excited bound levels of hydrogen with
+principal quantum number \(n > 1\),
+the electron loss rate per unit volume and unit velocity interval is
+(e.g., \S~4.3 of \citealp{Ferland:2012a}, but summing over angular
+momentum states)
 \begin{equation}
   \label{eq:11}
-  n_e \Dfudt{recomb} = -n_e n_p u \fu \sum_{n=2}^\infty \sum_{L=0}^{n-1} \sigma(\mathrm{H}^0_{nL},\, u),  
+  n_e \Dfudt{recomb} = -n_e n_p u \fu \sum_{n=2}^\infty \sigma(\mathrm{H}^0_{n},\, u),  
 \end{equation}
-where \(\sigma(\mathrm{H}^0_{nL},\, u)\) are the radiative recombination
+where \(\sigma(\mathrm{H}^0_{n},\, u)\) are the radiative recombination
 cross-sections, which can be expressed in terms of the photoionization
 cross-sections as 
 \begin{equation}
   \label{eq:5}
-  \sigma(\mathrm{H}^0_{nL},\, u) = (2 L + 1) \frac{h^2 \nu^2}{m_e^2 c^2 u^2} \, a_\nu(\mathrm{H}^0_{nL})
+  \sigma(\mathrm{H}^0_{n},\, u) =  \frac{h^2 \nu^2 n^2}{m_e^2 c^2 u^2} \, a_\nu(\mathrm{H}^0_{n})
 \end{equation}
 in which \(h\nu = \frac12 m_e u^2 + h\nu_0/n^2\). 
-\textit{Do we just ignore the recombinations to the ground state?
-  Does Cloudy have a way of simply printing out these terms.  We could
-  perhaps calculate them from the free-bound continuum spectra.}
+
+\textit{Talk about why we can ignore recombinations to ground-state:
+  cancellation with OTS diffuse photoionization}
 
 \paragraph{Inelastic collisions} \dfudt{inelastic} represents both a
 source of lower velocity electrons and also a sink of higher velocity

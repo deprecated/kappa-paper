@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{36}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Baskin} {et~al.}(2014){Baskin}, {Laor}, \& {Stern}}]{Baskin:2014a}
@@ -13,6 +13,9 @@
   {Kontar}}]{Bian:2014a}
 {Bian}, N.~H., {Emslie}, A.~G., {Stackhouse}, D.~J., \& {Kontar}, E.~P. 2014,
   \apj, 796, 142
+
+\bibitem[{{Chandrasekhar}(1941)}]{Chandrasekhar:1941a}
+{Chandrasekhar}, I.~S. 1941, \apj, 93, 285
 
 \bibitem[{{Deharveng} {et~al.}(2009){Deharveng}, {Zavagno}, {Schuller},
   {Caplan}, {Pomar{\`e}s}, \& {De Breuck}}]{Deharveng:2009a}
@@ -34,6 +37,12 @@
 
 \bibitem[{{Furlanetto} \& {Stoever}(2010)}]{Furlanetto:2010a}
 {Furlanetto}, S.~R., \& {Stoever}, S.~J. 2010, \mnras, 404, 1869
+
+\bibitem[{{Gould} \& {Levy}(1976)}]{Gould:1976a}
+{Gould}, R.~J., \& {Levy}, M. 1976, \apj, 206, 435
+
+\bibitem[{{Gould} \& {Thakur}(1971)}]{Gould:1971a}
+{Gould}, R.~J., \& {Thakur}, R.~K. 1971, Physics of Fluids, 14, 1701
 
 \bibitem[{{Groves} {et~al.}(2004){Groves}, {Dopita}, \&
   {Sutherland}}]{Groves:2004a}
@@ -67,6 +76,11 @@ Livi, S., \& Marsch, E. 1986, Phys. Rev. A, 34, 533
   {Langer}}]{Mackey:2015a}
 {Mackey}, J., {Gvaramadze}, V.~V., {Mohamed}, S., \& {Langer}, N. 2015, \aap,
   573, A10
+
+\bibitem[{{Manservisi} {et~al.}(2004){Manservisi}, {Molinari}, \&
+  {Rocchi}}]{Manservisi:2004a}
+{Manservisi}, S., {Molinari}, V., \& {Rocchi}, F. 2004, European Physical
+  Journal D, 29, 379
 
 \bibitem[{{McCrady} \& {Graham}(2007)}]{McCrady:2007a}
 {McCrady}, N., \& {Graham}, J.~R. 2007, \apj, 663, 844
